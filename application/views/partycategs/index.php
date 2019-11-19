@@ -191,7 +191,7 @@ $(document).ready(function() {
         buttons: [
             'copy', 'csv', 'excel', 'print'
         ], 
-    'ajax': 'fetchCategoryData',
+    'ajax': 'fetchPartyCategsData',
     'order': []
   });
 

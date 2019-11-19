@@ -34,10 +34,10 @@ class Controller_PartyCategs extends Admin_Controller
 	* returns the data into json format. 
 	* This function is invoked from the view page.
 	*/
-	public function fetchPartyCategoryDataById($id) 
+	public function fetchPartyCategsDataById($id) 
 	{
 		if($id) {
-			$data = $this->model_partycategs->getCategoryData($id);
+			$data = $this->model_partycategs->getPartyCategsData($id);
 			echo json_encode($data);
 		}
 
@@ -48,11 +48,11 @@ class Controller_PartyCategs extends Admin_Controller
 	* Fetches the category value from the category table 
 	* this function is called from the datatable ajax function
 	*/
-	public function fetchCategoryData()
+	public function fetchPartyCategsData()
 	{
 		$result = array('data' => array());
 
-		$data = $this->model_partycategs->getCategoryData();
+		$data = $this->model_partycategs->getPartyCategsData();
 
 		foreach ($data as $key => $value) {
 
@@ -71,7 +71,7 @@ class Controller_PartyCategs extends Admin_Controller
 			$status = ($value['active'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
 
 			$result['data'][$key] = array(
-				$value['name'],
+				$value['PartyCateg'],
 				$status,
 				$buttons
 			);
