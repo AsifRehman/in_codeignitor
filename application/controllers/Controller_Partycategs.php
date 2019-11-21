@@ -100,7 +100,7 @@ class Controller_PartyCategs extends Admin_Controller
 
         if ($this->form_validation->run() == TRUE) {
         	$data = array(
-        		'name' => $this->input->post('category_name'),
+        		'PartyCateg' => $this->input->post('category_name'),
         		'active' => $this->input->post('active'),	
         	);
 
@@ -146,7 +146,7 @@ class Controller_PartyCategs extends Admin_Controller
 
 	        if ($this->form_validation->run() == TRUE) {
 	        	$data = array(
-	        		'name' => $this->input->post('edit_category_name'),
+	        		'PartyCateg' => $this->input->post('edit_category_name'),
 	        		'active' => $this->input->post('edit_active'),	
 	        	);
 
