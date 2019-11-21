@@ -81,7 +81,7 @@
         <h4 class="modal-title">Add Party Category</h4>
       </div>
 
-      <form role="form" action="<?php echo base_url('Controller_Category/create') ?>" method="post" id="createForm">
+      <form role="form" action="<?php echo base_url('Controller_PartyCategs/create') ?>" method="post" id="createForm">
 
         <div class="modal-body">
 
@@ -121,7 +121,7 @@
         <h4 class="modal-title">Edit Category</h4>
       </div>
 
-      <form role="form" action="<?php echo base_url('Controller_Category/update') ?>" method="post" id="updateForm">
+      <form role="form" action="<?php echo base_url('Controller_PartyCategs/update') ?>" method="post" id="updateForm">
 
         <div class="modal-body">
           <div id="messages"></div>
@@ -162,7 +162,7 @@
         <h4 class="modal-title">Remove Category</h4>
       </div>
 
-      <form role="form" action="<?php echo base_url('Controller_Category/remove') ?>" method="post" id="removeForm">
+      <form role="form" action="<?php echo base_url('Controller_PartyCategs/remove') ?>" method="post" id="removeForm">
         <div class="modal-body">
           <p>Do you really want to remove?</p>
         </div>
@@ -258,7 +258,7 @@ $(document).ready(function() {
 function editFunc(id)
 { 
   $.ajax({
-    url: 'fetchCategoryDataById/'+id,
+    url: 'fetchPartyCategsDataById/'+id,
     type: 'post',
     dataType: 'json',
     success:function(response) {
