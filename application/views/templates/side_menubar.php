@@ -37,6 +37,11 @@
                 <i class="fa fa-cubes"></i> <span>Party Category</span>
               </a>
             </li>
+            <li id="categoryNav">
+              <a href="<?php echo base_url('Controller_PartyTypes/') ?>">
+                <i class="fa fa-cubes"></i> <span>Party Types</span>
+              </a>
+            </li>
           <?php endif; ?>
 
           <?php if(in_array('createStore', $user_permission) || in_array('updateStore', $user_permission) || in_array('viewStore', $user_permission) || in_array('deleteStore', $user_permission)): ?>

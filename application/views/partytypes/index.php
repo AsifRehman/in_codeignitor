@@ -6,12 +6,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Party Category
+      Party Type
       
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Party Category</li>
+      <li class="active">Party Type</li>
     </ol>
   </section>
 
@@ -36,7 +36,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createCategory', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Party Category</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Party Type</button>
           <br /> <br />
         <?php endif; ?>
 
@@ -47,7 +47,7 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Party Category</th>
+                <th>Party Type</th>
                 <th>Status</th>
                 <?php if(in_array('updateCategory', $user_permission) || in_array('deleteCategory', $user_permission)): ?>
                   <th>Action</th>
@@ -78,10 +78,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Party Category</h4>
+        <h4 class="modal-title">Add Party Type</h4>
       </div>
 
-      <form role="form" action="<?php echo base_url('Controller_PartyCategs/create') ?>" method="post" id="createForm">
+      <form role="form" action="<?php echo base_url('Controller_PartyTypes/create') ?>" method="post" id="createForm">
 
         <div class="modal-body">
 
@@ -121,14 +121,14 @@
         <h4 class="modal-title">Edit Category</h4>
       </div>
 
-      <form role="form" action="<?php echo base_url('Controller_PartyCategs/update') ?>" method="post" id="updateForm">
+      <form role="form" action="<?php echo base_url('Controller_PartyTypes/update') ?>" method="post" id="updateForm">
 
         <div class="modal-body">
           <div id="messages"></div>
 
           <div class="form-group">
             <label for="edit_brand_name">Category Name</label>
-            <input type="text" class="form-control" id="edit_category_name" name="edit_category_name" placeholder="Enter category name" autocomplete="off">
+            <input type="text" class="form-control" id="edit_party_type" name="edit_party_type" placeholder="Enter Party Type" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="edit_active">Status</label>
@@ -162,7 +162,7 @@
         <h4 class="modal-title">Remove Category</h4>
       </div>
 
-      <form role="form" action="<?php echo base_url('Controller_PartyCategs/remove') ?>" method="post" id="removeForm">
+      <form role="form" action="<?php echo base_url('Controller_PartyTypes/remove') ?>" method="post" id="removeForm">
         <div class="modal-body">
           <p>Do you really want to remove?</p>
         </div>
@@ -191,7 +191,7 @@ $(document).ready(function() {
         buttons: [
             'copy', 'csv', 'excel', 'print'
         ], 
-    'ajax': 'fetchPartyCategsData',
+    'ajax': 'fetchPartyTypesData',
     'order': []
   });
 
@@ -258,11 +258,11 @@ $(document).ready(function() {
 function editFunc(id)
 { 
   $.ajax({
-    url: 'fetchPartyCategsDataById/'+id,
+    url: 'fetchPartyTypesDataById/'+id,
     type: 'post',
     dataType: 'json',
     success:function(response) {
-      $("#edit_category_name").val(response.PartyCateg);
+      $("#edit_category_name").val(response.PartyType);
       $("#edit_active").val(response.active);
 
       // submit the edit from 
